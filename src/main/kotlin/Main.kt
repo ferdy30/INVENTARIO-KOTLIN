@@ -10,8 +10,17 @@ fun main(parametro: Array<String>) {
 
     val empleado = usuario()
 
+    empleado.carga()
     empleado.validacion()
     empleado.continuar()
+    empleado.cambiocontra()
+    empleado.menu()
+
+
+
+
+
+
 
 
 
