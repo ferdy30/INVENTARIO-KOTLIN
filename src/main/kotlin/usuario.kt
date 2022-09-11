@@ -1,6 +1,6 @@
 class usuario(private var usuario: String, private var contrasena: String) {
     var op: Int? = null
-
+    val menu = Menu();
     constructor() : this("", "") {
 
         print("Ingrese su usuario:")
@@ -14,14 +14,17 @@ class usuario(private var usuario: String, private var contrasena: String) {
 
 
         if (usuario == "admin" && contrasena == "admin123") {
-            print("Usuario correcto.Bienvenido Admin")
+            print("Usuario correcto.Bienvenido Admin " )
+            print(menu.menu());
 
         } else if (usuario == "vendedor" && contrasena == "vendedor123") {
             println("usuario correcto.Bienvenido vendedor")
+            print(menu.menu());
 
 
         } else if (usuario == "invitado" && contrasena == "invitado123") {
             println("usuario correcto.Bienvenido Invitado")
+            print(menu.menu());
         } else {
 
             println("usuario incorrecto")
