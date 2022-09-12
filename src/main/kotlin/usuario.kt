@@ -78,8 +78,8 @@
        println("1-admin/admin123\n" +
                 "2-vendedor/vendedor123\n" +
                 "3-invitado/invitado123")
-      var Cambiocontrasena= readLine()!!.toString()
-       if (cambio== " $cambio"){
+      var cambio= readLine()!!.toString()
+       if (cambio== "1,admin123,admin321"){
            println("contraseña actualizada con exito")
 
        }else if (cambio=="2,vendedor123,vendedor321"){
