@@ -1,143 +1,63 @@
-  class usuario(private var usuario: String, private var contrasena: String,private var Cambiocontrasena:String) {
-    var op: Int? = null
-      val menu=Menu()
-      var cambio=""
+ class usuario(private var usuario: String, private var contrasena: String) {
+     var op: Int? = null
 
 
-       constructor():this("","","")
+     constructor() : this("", "")
 
 
+     fun carga() {
 
-     fun carga(){
+         print("Ingrese su usuario:")
+         usuario = readLine()!!.toString()
+         print("Ingrese la contraseña:")
+         contrasena = readLine()!!.toString()
 
-        print("Ingrese su usuario:")
-        usuario = readLine()!!.toString()
-        print("Ingrese la contraseña:")
-        contrasena = readLine()!!.toString()
-
-    }
-
-
-   fun validacion() {
+     }
 
 
-        if (usuario == "admin" && contrasena == "admin123") {
-            print("Usuario correcto.Bienvenido Admin " )
+     fun validacion(){
 
 
+         if (usuario == "admin" && contrasena == "admin123") {
+             print("Usuario correcto.Bienvenido Admin ")
+             this.menu()
 
-        } else if (usuario == "vendedor" && contrasena == "vendedor123") {
-            println("usuario correcto.Bienvenido vendedor")
+         } else if (usuario == "vendedor" && contrasena == "vendedor123") {
+             println("usuario correcto.Bienvenido vendedor")
+             this.menu()
 
-
-
-
-        } else if (usuario == "invitado" && contrasena == "invitado123") {
-            println("usuario correcto.Bienvenido Invitado")
-
-        }else if (usuario=="admin"&& Cambiocontrasena== "$cambio"){
-            println("usuario correcto.Bienvenido Admin")
-
-
-        }
-
-        else {
-
-            println("usuario incorrecto")
-
-            println("Presione la tecla 1 si desea intentarlo de nuevo")
-        }
-
-                   this.menu()
-    }
-
-    fun continuar() {
-
-        var op: Int = readLine()!!.toInt()
-
-        while (op == 1) {
-
-            print("Ingrese su usuario:")
-            usuario = readLine()!!.toString()
-            print("Ingrese la contraseña:")
-            contrasena = readLine()!!.toString()
-
-            break
-        }
-
-        this.validacion()
+         } else if (usuario == "invitado" && contrasena == "invitado123") {
+             println("usuario correcto.Bienvenido Invitado")
+             this.menu()
 
 
-    }
-      fun prueba(){
+         } else {
+
+             println("usuario incorrecto")
+
+             println("Presione la tecla 1 si desea intentarlo de nuevo")
+         }
 
 
-      }
-   fun cambiocontra(){
-       println("Escriba su codigo, contraseña actual,contraseña nueva")
-       println("1-admin/admin123\n" +
-                "2-vendedor/vendedor123\n" +
-                "3-invitado/invitado123")
-      var cambio= readLine()!!.toString()
-       if (cambio== "1,admin123,admin321"){
-           println("contraseña actualizada con exito")
+     }
 
-       }else if (cambio=="2,vendedor123,vendedor321"){
-           println("Acseso denegado")
+     fun continuar() {
 
-       }else if (cambio=="3,invitador123,invitado321"){
-           println("Acseso denegado")
+         var op: Int = readLine()!!.toInt()
 
+         while (op == 1) {
 
-       }
-       this.carga()
-       this.validacion()
-   }
+             this.carga()
 
-       fun menu() {
+             break
+         }
 
-           println("....................................................................")
-           println("........... FAVOR INGRESAR UNA DE LAS SIGUIENTES OPCIONES ..........")
-           println("....................................................................")
-           println("1. -venta nueva")
-           println("2. -Consultar inventarios")
-           println("3. -Cambiar contraseña")
-           println("4. -salir del sistema")
-
-           var opcion = readLine()!!.toInt()
+         this.validacion()
 
 
+     }
 
-           when (opcion) {
-               1 -> {
-                   println("Bienvenido a venta nueva")
-               }
-
-               2 -> {
-                   println("Bienvenido a consulta de inventarios")
-               }
-
-               3 -> {
-                   println("Usted seleccionó la opcion de cambio de contraseña")
-
-                          this.cambiocontra()
-               }
-
-               4->{
-                   println("Gracias por ingresar a Farmacia Fiorella, que tenga un buen dia!")
-               }
-               else->{
-                   println("Esta opcion no es valida")
-               }
-           }
-       }
-
-
-
-
-
-
-   /*  fun menu() {
+     fun menu() {
 
          println("....................................................................")
          println("........... FAVOR INGRESAR UNA DE LAS SIGUIENTES OPCIONES ..........")
@@ -163,20 +83,61 @@
              3 -> {
                  println("Usted seleccionó la opcion de cambio de contraseña")
 
-
+                 this.cambiocontra()
              }
 
-
-             4->{
+             4 -> {
                  println("Gracias por ingresar a Farmacia Fiorella, que tenga un buen dia!")
              }
-             else->{
+
+             else -> {
                  println("Esta opcion no es valida")
              }
          }
 
-     */}
 
+     }
+
+
+     fun cambiocontra() {
+
+         println("Escriba su codigo, contraseña actual,contraseña nueva separados por comas")
+         println(
+                     "1-admin/admin123\n" +
+                     "2-vendedor/vendedor123\n" +
+                     "3-invitado/invitado123")
+
+
+         val str = readLine()!!.toString()
+         val list: List<String> = str.split(",").toList()
+         var  cambio=list[2]
+
+         if (list[0]=="1" && list[1]=="admin123" && cambio==cambio){
+             println("Contraseña actualizada con exito\n" +
+                     "porfavor inicie seccion denuevo")
+
+             this.carga()
+             if (usuario=="admin"&& contrasena==cambio){
+                 println("Usuario correcto.Bienvenido Admin")
+                 this.menu()
+             }else{
+                 println("usuaro incorrecto. Intentelo de nuevo")
+                this.carga()
+             }
+
+         }
+         else{
+             println("Parametros incorrectos asegurese de que su codigo y contraseña actual sean correctas\n" +
+                     "vueva a intentarlo de nuevo")
+             println(cambiocontra())
+         }
+
+
+         }
+
+
+
+ }
 
 
 
