@@ -9,7 +9,7 @@ fun main(parametro: Array<String>) {
 
 //INICIO DE LOGIN
 
-    val empleado = usuario()
+    val empleado = Usuario()
 
     empleado.carga()
     empleado.validacion()
@@ -21,6 +21,7 @@ fun main(parametro: Array<String>) {
 
 
 
+//<<<<<<< HEAD
 
 
 
@@ -30,6 +31,8 @@ fun main(parametro: Array<String>) {
 
 
 
+//=======
+//>>>>>>> Rony
 }
 
 
