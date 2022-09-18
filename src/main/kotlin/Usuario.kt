@@ -5,18 +5,20 @@
 
 
 
-     fun carga() {
+ fun carga() {
 
          print("Ingrese su usuario:")
          usuario = readLine()!!.toString()
+
          print("Ingrese la contraseña:")
          contrasena = readLine()!!.toString()
+
 
      }
 
 
      fun validacion(){
-
+         var venta1 = Venta()
 
          if (usuario == "admin" && contrasena == "admin123") {
              print("Usuario correcto.Bienvenido Admin ")
@@ -27,9 +29,20 @@
              this.menu()
 
          } else if (usuario == "invitado" && contrasena == "invitado123") {
-             println("usuario correcto.Bienvenido Invitado")
-             this.menu()
 
+             println("usuario correcto.Bienvenido Invitado")
+             println("---------------------------------------------------")
+             println("                    INVENTARIO                     ")
+             println("---------------------------------------------------")
+             venta1.cargar()
+             venta1.listado()
+             println("Para hacer compras debe cambiarse de usuario")
+             println("s/n  s=si n=salir")
+             val leer = readLine()
+             if(leer== "s") {
+             this.carga()
+                 this.validacion()
+             }else("feliz día")
 
          } else {
 
@@ -113,34 +126,43 @@
                  venta1.cargar()
                  venta1.listado()
                  venta1.venta()
+
              }
 
              2 -> {
                  println("Bienvenido a consulta de inventarios")
+
                  venta1.cargar()
                  venta1.listado()
+                 venta1.validar()
 
 
              }
 
              3 -> {
                  println("Usted seleccionó la opcion de cambio de contraseña")
-
+                 this.cambiocontra()
 
              }
 
              4 -> {
                  println("Gracias por ingresar a Farmacia Fiorella, que tenga un buen dia!")
+
              }
 
              else -> {
                  println("Esta opcion no es valida")
+                 this.menu()
              }
          }
+
+
      }
 
 
- }
+
+     }
+
 
 
 
