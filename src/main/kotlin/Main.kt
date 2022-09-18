@@ -6,6 +6,7 @@ fun main(parametro: Array<String>) {
     println("........... FAVOR INGRESAR SUS CREDENCIALES ..........")
     println(".....................................................")
 
+
 //INICIO DE LOGIN
 
     val empleado = usuario()
@@ -15,13 +16,6 @@ fun main(parametro: Array<String>) {
     empleado.continuar()
     empleado.cambiocontra()
     empleado.menu()
-
-
-
-
-
-
-
 
 
 
